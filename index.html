@@ -7,6 +7,7 @@
 </style></head><body>
 <header><span class="tag">STEP 1 · RAW RAINFALL</span><h1>ภาพรวมฝนสถานีและอันดับ GCM</h1><p>Historical 1985–2014 · ยอดฝนหน่วย mm · ยังไม่ปรับแก้ bias</p></header>
 <main>
+<nav aria-label="หน้าหลัก"><a href="map.html">แผนที่ความครบข้อมูลสถานีฝน 1985–2014 →</a></nav>
 <section id="catalogSection"><div class="row"><h2>สถานีที่มีผลการประมวลผล</h2><label>ค้นหาสถานี <input id="stationSearch" placeholder="ชื่อหรือรหัสสถานี" aria-label="ค้นหาสถานี"></label></div><p class="note">อันดับเปรียบเทียบภายในสถานีเดียวกัน ไม่ใช่อันดับข้ามสถานี · ผลใหม่โหลดอัตโนมัติหลังผู้จัดทำเผยแพร่</p><div class="scroll" id="stationTable"></div></section>
 <p id="status" role="status">กำลังเปิดผลที่เผยแพร่ไว้…</p><p id="error" role="alert"></p>
 <div id="results" hidden>
@@ -57,3 +58,4 @@ $('#downloadValues').onclick=()=>{const f=dataSource(),names=Object.keys(f.serie
 document.querySelectorAll('details').forEach(e=>e.addEventListener('toggle',()=>{if(e.open&&window.Plotly){const p=e.querySelector('.plot');if(p)Plotly.Plots.resize(p)}}));
 try{catalog();if(INITIAL)init(INITIAL);else if(CATALOG.length)choose(CATALOG.some(r=>r.station===query.get('station'))?query.get('station'):CATALOG.find(r=>r.status==='ranked')?.station||CATALOG[0].station);else $('#status').textContent='ยังไม่มีผลการรันที่เผยแพร่ ไม่แสดงข้อมูลจำลองเป็นผลจริง'}catch(e){$('#error').textContent=e.message}
 </script></body></html>
+
